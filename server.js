@@ -12,7 +12,7 @@ try {
     if (process.env.FIREBASE_CONFIG) {
         serviceAccount = JSON.parse(process.env.FIREBASE_CONFIG);
     } else {
-        serviceAccount = require("./firebase-key.json");
+        serviceAccount = require("./firebase-key.json.json");
     }
 
     admin.initializeApp({
