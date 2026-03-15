@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aluno</title>
+    
+
+</head>
+
+<body>
+
+    <header style="display: flex; justify-content: space-between; padding: 10px; background: #f4f4f4;">
+        <span>Bem-vindo, <strong id="nome-usuario">...</strong></span>
+        <a href="/sair" style="color: red; font-weight: bold; text-decoration: none;">SAIR</a>
+    </header>
+
+    <script>
+        // Busca o nome do usuário assim que a página carrega
+        fetch('/api/usuario-logado')
+            .then(res => res.json())
+            .then(data => {
+                if (data.nome) {
+                    document.getElementById('nome-usuario').innerText = data.nome;
+                }
+            });
+    </script>
+
+</body>
+
+</html>

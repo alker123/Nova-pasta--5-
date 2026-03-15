@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/css/style1.css">
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
+
+<body>
+    <div class="login-container">
+
+        <div id="login-panel">
+            <h2>Login</h2>
+            <input type="text" id="user" placeholder="Email ou Usuário">
+            <div class="password-container">
+                <input type="password" id="pass" placeholder="Senha">
+                <button type="button" id="toggle-password">👁️</button>
+            </div>
+            <button onclick="entrar()">Acessar</button>
+            <p><a href="#" onclick="showForgot()">Esqueci a senha</a></p>
+            <p><a href="#" onclick="showRegister()">Cadastrar</a></p>
+        </div>
+
+        <div id="forgot-panel" style="display:none;">
+            <h2>Recuperar Senha</h2>
+
+            <div id="recovery-step1">
+                <input type="email" id="forgot-email" placeholder="Digite seu email">
+                <button onclick="sendRecoveryCode()">Enviar código</button>
+            </div>
+
+            <div id="recovery-step2" style="display:none; margin-top: 10px;">
+                <input type="text" id="recovery-code-input" placeholder="Código de 6 dígitos">
+                <button onclick="verifyRecoveryCode()">Verificar Código</button>
+            </div>
+
+            <div id="recovery-step3" style="display:none; margin-top: 10px;">
+                <input type="password" id="new-password" placeholder="Nova Senha">
+                <input type="password" id="confirm-new-password" placeholder="Confirme a Nova Senha">
+                <button onclick="saveNewPassword()">Salvar Nova Senha</button>
+            </div>
+
+            <p><a href="#" onclick="showLogin()">Voltar ao Login</a></p>
+        </div>
+
+        <div id="register-step1" style="display:none;">
+            <h2>Cadastro - Etapa 1</h2>
+            <input type="text" id="full-name" placeholder="Nome completo">
+            <input type="text" id="telefone" placeholder="Telefone">
+            <input type="email" id="register-email" placeholder="Email">
+            <button onclick="confirmEmail()">Confirmar Email</button>
+
+            <div id="email-code-section" style="display:none; margin-top: 10px;">
+                <input type="text" id="email-code" placeholder="Código de 6 dígitos">
+                <button onclick="nextStep()">Próxima Etapa</button>
+            </div>
+            <p><a href="#" onclick="showLogin()">Voltar</a></p>
+        </div>
+
+        <div id="register-step2" style="display:none;">
+            <h2>Cadastro - Etapa 2</h2>
+            <input type="text" id="username" placeholder="Nome de usuário">
+            <div class="password-container">
+                <input type="password" id="password" placeholder="Senha">
+                <button type="button" id="toggle-password2">👁️</button>
+            </div>
+            <div class="password-container">
+                <input type="password" id="confirm-password" placeholder="Confirmar senha">
+                <button type="button" id="toggle-password3">👁️</button>
+            </div>
+            <button onclick="registerUser()">Finalizar Cadastro</button>
+            <p><a href="#" onclick="showLogin()">Voltar</a></p>
+        </div>
+    </div>
+
+    <script src="/js/app.js"></script>
+    <script src="/js/login.js"></script>
+    
+</body>
+
+</html>
